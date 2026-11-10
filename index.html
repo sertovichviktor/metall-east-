@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>МЕТАЛЛ-ИСТ — Нержавеющая сталь и инженерная арматура (ИНН 7704429127)</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Шрифты (Plus Jakarta Sans + Space Grotesk) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#070a12',
+              900: '#0b111e',
+              850: '#0f1728',
+              800: '#141f36',
+              700: '#1e2e50',
+            },
+            electric: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              gradient: '#2563eb',
+            }
+          },
+          boxShadow: {
+            'glow-blue': '0 0 50px -10px rgba(14, 165, 233, 0.35)',
+            'glow-card': '0 10px 30px -10px rgba(7, 10, 18, 0.8), 0 0 20px -5px rgba(14, 165, 233, 0.2)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #070a12;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .glass-nav {
+      background: rgba(11, 17, 30, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .glass-card {
+      background: linear-gradient(135deg, rgba(20, 31, 54, 0.7) 0%, rgba(11, 17, 30, 0.85) 100%);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 25px -5px rgba(14, 165, 233, 0.25);
+    }
+    .text-glow {
+      text-shadow: 0 0 30px rgba(56, 189, 248, 0.45);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-electric-500 selection:text-white">
+
+  <!-- ================= 1. ШАПКА / НАВИГАЦИЯ ================= -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-white/5 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+      
+      <!-- Логотип как на макете -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 flex items-center justify-center">
+          <!-- Стилизованная ленточная буква "M" -->
+          <svg viewBox="0 0 40 40" fill="none" class="w-10 h-10 group-hover:scale-105 transition-transform">
+            <path d="M6 32L14 8L20 22L26 8L34 32" stroke="url(#paint0_linear)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 24L20 12L28 24" stroke="url(#paint1_linear)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="paint0_linear" x1="6" y1="8" x2="34" y2="32" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38BDF8"/>
+                <stop offset="0.5" stop-color="#0EA5E9"/>
+                <stop offset="1" stop-color="#2563EB"/>
+              </linearGradient>
+              <linearGradient id="paint1_linear" x1="12" y1="12" x2="28" y2="24" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#67E8F9"/>
+                <stop offset="1" stop-color="#0284C7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <div class="font-display text-lg font-extrabold tracking-wider text-white leading-tight">
+            МЕТАЛЛ-ИСТ
+          </div>
+          <div class="text-[9px] uppercase tracking-wider text-slate-400 font-medium">
+            Нержавеющий металл. Инженерные решения.
+          </div>
+        </div>
+      </a>
+
+      <!-- Меню сайта -->
+      <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-300">
+        <a href="#catalogSection" class="flex items-center gap-1 hover:text-white transition">Каталог <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i></a>
+        <a href="#services" class="flex items-center gap-1 hover:text-white transition">Услуги <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i></a>
+        <a href="#about" class="hover:text-white transition">О компании</a>
+        <a href="#production" class="hover:text-white transition">Производство</a>
+        <a href="#delivery" class="hover:text-white transition">Доставка</a>
+        <a href="#news" class="hover:text-white transition">Новости</a>
+        <a href="#contacts" class="hover:text-white transition">Контакты</a>
+      </nav>
+
+      <!-- Правая часть: Телефон, Корзина и Кнопка Заявки -->
+      <div class="flex items-center gap-4">
+        
+        <!-- Телефон -->
+        <div class="hidden sm:block text-right">
+          <a href="tel:+74951234567" class="text-xs font-bold text-white hover:text-electric-400 flex items-center justify-end gap-1.5 transition">
+            <i data-lucide="phone" class="w-3.5 h-3.5 text-electric-400"></i> +7 (495) 123-45-67
+          </a>
+          <span class="text-[10px] text-slate-400 block font-normal">Пн-Пт 9:00–18:00</span>
+        </div>
+
+        <!-- Корзина / Спецификация -->
+        <button id="openCartBtn" class="relative p-2.5 rounded-xl bg-navy-850 hover:bg-navy-800 border border-white/10 text-white transition active:scale-95">
+          <i data-lucide="shopping-cart" class="w-4 h-4 text-electric-400"></i>
+          <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-electric-500 text-slate-950 text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+
+        <!-- Кнопка "Оставить заявку" в стиле макета -->
+        <button id="quickOrderBtn" class="border border-white/20 hover:border-electric-400/80 hover:bg-electric-500/10 text-white text-xs font-semibold px-4 py-2 rounded-xl transition duration-300 flex items-center gap-2">
+          <span>Оставить заявку</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-electric-400"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 2. HERO СЕКЦИЯ 1-в-1 ================= -->
+  <section class="relative min-h-[640px] lg:min-h-[700px] flex items-center overflow-hidden pt-6 pb-20">
+    
+    <!-- Фоновые световые акценты и свечение -->
+    <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-electric-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-1/3 -right-20 w-[650px] h-[650px] bg-electric-500/20 rounded-full blur-[150px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <!-- Левая часть: Заголовок и Действия -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Бейдж: — НАДЁЖНЫЙ ПОСТАВЩИК -->
+        <div class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-electric-400 uppercase">
+          <span class="w-6 h-[2px] bg-electric-400 inline-block"></span>
+          Надёжный поставщик
+        </div>
+
+        <!-- Большой двухуровневый заголовок -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight leading-[1.08] text-white">
+          Нержавеющая сталь <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-400 via-sky-300 to-electric-gradient text-glow">
+            и инженерная арматура
+          </span>
+        </h1>
+
+        <!-- Подзаголовок -->
+        <p class="text-slate-300 text-sm sm:text-base max-w-xl font-normal leading-relaxed">
+          Широкий ассортимент, стабильные поставки и индивидуальные решения для вашего бизнеса
+        </p>
+
+        <!-- Кнопки действий -->
+        <div class="flex flex-wrap items-center gap-5 pt-2">
+          <!-- Синяя основная кнопка -->
+          <a href="#catalogSection" class="bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-sky-400 text-white font-bold text-sm px-7 py-3.5 rounded-xl shadow-glow-blue transition-all duration-300 flex items-center gap-2.5 active:scale-95">
+            <span>Перейти в каталог</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+
+          <!-- Круглая кнопка видео/инфо -->
+          <a href="#about" class="inline-flex items-center gap-3 text-xs font-semibold text-white hover:text-electric-400 transition group">
+            <div class="w-11 h-11 rounded-full border border-white/20 group-hover:border-electric-400 group-hover:bg-electric-500/10 flex items-center justify-center transition">
+              <i data-lucide="play" class="w-4 h-4 fill-white text-white ml-0.5 group-hover:text-electric-400 group-hover:fill-electric-400"></i>
+            </div>
+            <span>Узнать больше<br>о компании</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Правая часть: Визуализация (Трубы + Запорный кран) -->
+      <div class="lg:col-span-5 relative flex justify-center items-center">
+        <!-- Композиция стальной арматуры -->
+        <div class="relative w-full max-w-[520px] aspect-[4/3] rounded-3xl overflow-hidden p-1">
+          <div class="absolute inset-0 bg-gradient-to-tr from-electric-500/20 to-transparent rounded-3xl blur-xl"></div>
+          
+          <img 
+            src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=1000&auto=format&fit=crop&q=85" 
+            alt="Нержавеющие трубы и арматура" 
+            class="relative w-full h-full object-cover rounded-2xl border border-white/10 shadow-2xl filter contrast-125"
+          >
+          
+          <!-- Оверлей градиента под стиль макета -->
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent rounded-2xl"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-navy-950/40 via-transparent to-navy-950/60 rounded-2xl"></div>
+        </div>
+
+        <!-- Нумерация слайдера справа: 01, 02, 03 -->
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-center gap-2 text-xs font-mono select-none">
+          <span class="text-electric-400 font-bold border-r-2 border-electric-400 pr-2">01</span>
+          <span class="text-slate-600 font-normal pr-2">02</span>
+          <span class="text-slate-600 font-normal pr-2">03</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 3. ПЯТЬ КАРТОЧЕК КАТЕГОРИЙ (КАК В МАКЕТЕ) ================= -->
+  <section class="relative z-20 -mt-10 lg:-mt-14 max-w-7xl mx-auto px-4 sm:px-6 w-full">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
+      
+      <!-- 1. Трубы нержавеющие -->
+      <div onclick="selectCategory('pipes')" class="glass-card rounded-2xl p-4 flex flex-col justify-between cursor-pointer group transition-all duration-300">
+        <div class="h-24 w-full rounded-xl overflow-hidden mb-3 bg-navy-900 border border-white/5">
+          <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=400&auto=format&fit=crop&q=75" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-xs font-bold text-white group-hover:text-electric-400 transition leading-tight">Трубы<br>нержавеющие</span>
+          <div class="w-7 h-7 rounded-full bg-white/5 group-hover:bg-electric-500 group-hover:text-slate-950 flex items-center justify-center text-slate-300 transition">
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Листы нержавеющие -->
+      <div onclick="selectCategory('sheets')" class="glass-card rounded-2xl p-4 flex flex-col justify-between cursor-pointer group transition-all duration-300">
+        <div class="h-24 w-full rounded-xl overflow-hidden mb-3 bg-navy-900 border border-white/5">
+          <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=400&auto=format&fit=crop&q=75" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-xs font-bold text-white group-hover:text-electric-400 transition leading-tight">Листы<br>нержавеющие</span>
+          <div class="w-7 h-7 rounded-full bg-white/5 group-hover:bg-electric-500 group-hover:text-slate-950 flex items-center justify-center text-slate-300 transition">
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Фитинги и соединения -->
+      <div onclick="selectCategory('fittings')" class="glass-card rounded-2xl p-4 flex flex-col justify-between cursor-pointer group transition-all duration-300">
+        <div class="h-24 w-full rounded-xl overflow-hidden mb-3 bg-navy-900 border border-white/5">
+          <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=400&auto=format&fit=crop&q=75" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-xs font-bold text-white group-hover:text-electric-400 transition leading-tight">Фитинги<br>и соединения</span>
+          <div class="w-7 h-7 rounded-full bg-white/5 group-hover:bg-electric-500 group-hover:text-slate-950 flex items-center justify-center text-slate-300 transition">
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Краны и арматура -->
+      <div onclick="selectCategory('valves')" class="glass-card rounded-2xl p-4 flex flex-col justify-between cursor-pointer group transition-all duration-300">
+        <div class="h-24 w-full rounded-xl overflow-hidden mb-3 bg-navy-900 border border-white/5">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&auto=format&fit=crop&q=75" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-xs font-bold text-white group-hover:text-electric-400 transition leading-tight">Краны<br>и арматура</span>
+          <div class="w-7 h-7 rounded-full bg-white/5 group-hover:bg-electric-500 group-hover:text-slate-950 flex items-center justify-center text-slate-300 transition">
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Фланцы и детали трубопровода -->
+      <div onclick="selectCategory('flanges')" class="glass-card rounded-2xl p-4 flex flex-col justify-between cursor-pointer group transition-all duration-300 col-span-2 md:col-span-1">
+        <div class="h-24 w-full rounded-xl overflow-hidden mb-3 bg-navy-900 border border-white/5">
+          <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=400&auto=format&fit=crop&q=75" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        </div>
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-xs font-bold text-white group-hover:text-electric-400 transition leading-tight">Фланцы и детали<br>трубопровода</span>
+          <div class="w-7 h-7 rounded-full bg-white/5 group-hover:bg-electric-500 group-hover:text-slate-950 flex items-center justify-center text-slate-300 transition">
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 4. ПОЛОСА ПРЕИМУЩЕСТВ (УТП) ================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 w-full py-12">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 py-8 border-y border-white/10">
+      
+      <!-- Гарантия качества -->
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-electric-500/10 border border-electric-500/20 flex items-center justify-center text-electric-400 shrink-0">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm text-white">Гарантия качества</h4>
+          <p class="text-xs text-slate-400">100% входной контроль</p>
+        </div>
+      </div>
+
+      <!-- Широкий ассортимент -->
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-electric-500/10 border border-electric-500/20 flex items-center justify-center text-electric-400 shrink-0">
+          <i data-lucide="warehouse" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm text-white">Широкий ассортимент</h4>
+          <p class="text-xs text-slate-400">3 800+ позиций в наличии</p>
+        </div>
+      </div>
+
+      <!-- Оперативная доставка по РФ -->
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-electric-500/10 border border-electric-500/20 flex items-center justify-center text-electric-400 shrink-0">
+          <i data-lucide="truck" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm text-white">Оперативная доставка по РФ</h4>
+          <p class="text-xs text-slate-400">Отгрузка в день оплаты</p>
+        </div>
+      </div>
+
+      <!-- Техническая поддержка -->
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-electric-500/10 border border-electric-500/20 flex items-center justify-center text-electric-400 shrink-0">
+          <i data-lucide="headphones" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm text-white">Техническая поддержка</h4>
+          <p class="text-xs text-slate-400">Помощь инженеров 24/7</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 5. БЛОК "О КОМПАНИИ" СО СКЛАДОМ И СТАТИСТИКОЙ ================= -->
+  <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 w-full py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <!-- Левая колонка: Текст + Цифры 10+, 500+, 99% -->
+      <div class="lg:col-span-6 space-y-6">
+        
+        <div class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-electric-400 uppercase">
+          <span class="w-6 h-[2px] bg-electric-400 inline-block"></span>
+          О компании
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl font-display font-black text-white leading-tight">
+          Металл-Ист — <br>ваш надёжный партнёр
+        </h2>
+
+        <p class="text-slate-300 text-sm leading-relaxed max-w-lg">
+          Поставки нержавеющей стали, трубопроводной арматуры и комплектующих от ведущих производителей. Официальная гарантия соответствия ГОСТ и DIN на каждую партию.
+        </p>
+
+        <!-- Цифры как в макете -->
+        <div class="grid grid-cols-3 gap-6 pt-2 max-w-lg">
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-extrabold text-white">10+</div>
+            <div class="text-xs text-slate-400 mt-1 font-medium">лет на рынке</div>
+          </div>
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-extrabold text-white">500+</div>
+            <div class="text-xs text-slate-400 mt-1 font-medium">постоянных клиентов</div>
+          </div>
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-extrabold text-white">99%</div>
+            <div class="text-xs text-slate-400 mt-1 font-medium leading-tight">выполненных заказов в срок</div>
+          </div>
+        </div>
+
+        <div class="pt-4">
+          <a href="#catalogSection" class="inline-flex items-center gap-2 bg-white hover:bg-slate-200 text-navy-950 font-bold text-xs px-6 py-3 rounded-xl transition shadow-lg">
+            <span>Узнать больше</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Правая колонка: Фото промышленного склада со стеллажами -->
+      <div class="lg:col-span-6">
+        <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-glow-blue">
+          <img 
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1000&auto=format&fit=crop&q=85" 
+            alt="Складской комплекс ООО Металл-Ист" 
+            class="w-full h-80 sm:h-96 object-cover"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-navy-900/80 backdrop-blur-md border border-white/10 flex items-center justify-between">
+            <span class="text-xs font-semibold text-white">Складской комплекс: Москва, Чермянский пр-д, 7</span>
+            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">В наличии 1 200 тонн</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 6. ИНТЕРАКТИВНЫЙ КАТАЛОГ И ПОИСК ================= -->
+  <section id="catalogSection" class="max-w-7xl mx-auto px-4 sm:px-6 w-full py-16">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+      <div>
+        <div class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-electric-400 uppercase mb-2">
+          <span class="w-6 h-[2px] bg-electric-400 inline-block"></span>
+          Онлайн-номенклатура
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-display font-extrabold text-white">Каталог сертифицированной продукции</h2>
+      </div>
+
+      <!-- Живой инпут поиска -->
+      <div class="relative w-full md:w-80">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Поиск по марке, размеру, ГОСТу..." 
+          class="w-full bg-navy-850 border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-400 outline-none focus:border-electric-400 transition"
+        >
+        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3"></i>
+      </div>
+    </div>
+
+    <!-- Фильтры по стали -->
+    <div class="flex flex-wrap items-center gap-2 mb-8">
+      <span class="text-xs text-slate-400 mr-2">Марка стали:</span>
+      <button onclick="filterSteel('all')" class="steel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-electric-500 text-slate-950 transition">Все</button>
+      <button onclick="filterSteel('AISI 304')" class="steel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-navy-850 text-slate-300 hover:text-white border border-white/5 transition">AISI 304 (08Х18Н10)</button>
+      <button onclick="filterSteel('AISI 316L')" class="steel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-navy-850 text-slate-300 hover:text-white border border-white/5 transition">AISI 316L (Кислотостойкая)</button>
+      <button onclick="filterSteel('12Х18Н10Т')" class="steel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-navy-850 text-slate-300 hover:text-white border border-white/5 transition">12Х18Н10Т (Титан)</button>
+    </div>
+
+    <!-- Сетка карточек -->
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Генерируется из JavaScript -->
+    </div>
+
+  </section>
+
+  <!-- ================= 7. ВСПЛЫВАЮЩАЯ B2B-СПЕЦИФИКАЦИЯ (КОРЗИНА) ================= -->
+  <div id="cartBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden transition-opacity"></div>
+  <div id="cartDrawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-navy-900 border-l border-white/10 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+    
+    <div class="p-5 border-b border-white/10 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <i data-lucide="file-spreadsheet" class="w-5 h-5 text-electric-400"></i>
+        <h3 class="font-display font-bold text-white">Спецификация заказа</h3>
+      </div>
+      <button id="closeCartBtn" class="p-1 rounded-lg text-slate-400 hover:text-white transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div id="cartItemsList" class="flex-1 overflow-y-auto p-5 space-y-3">
+      <!-- Товары спецификации -->
+    </div>
+
+    <div class="p-5 border-t border-white/10 bg-navy-950 space-y-4">
+      <div class="space-y-1 text-xs text-slate-400">
+        <div class="flex justify-between">
+          <span>В том числе НДС (20%):</span>
+          <span id="cartVatTotal" class="text-slate-200">0 ₽</span>
+        </div>
+        <div class="flex justify-between items-baseline pt-1">
+          <span class="text-sm font-semibold text-white">Итоговая сумма:</span>
+          <span id="cartDrawerTotal" class="text-2xl font-display font-black text-electric-400">0 ₽</span>
+        </div>
+      </div>
+
+      <button id="checkoutBtn" class="w-full bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-sky-400 text-white font-bold py-3.5 px-4 rounded-xl shadow-glow-blue flex items-center justify-center gap-2 transition active:scale-95 text-xs uppercase tracking-wider">
+        <span>Сформировать B2B-счёт и КП</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ================= 8. МОДАЛКА B2B ЗАЯВКИ С РЕКВИЗИТАМИ ================= -->
+  <div id="orderModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-navy-900 border border-white/10 rounded-3xl max-w-lg w-full p-6 shadow-2xl relative">
+      <button id="closeOrderModal" class="absolute top-5 right-5 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-5">
+        <div class="text-[10px] font-bold uppercase tracking-wider text-electric-400 mb-1">
+          Поставщик: ООО «Металл-Ист» (ИНН 7704429127)
+        </div>
+        <h3 class="text-xl font-display font-extrabold text-white">Запрос счёта и договора</h3>
+      </div>
+
+      <form id="orderForm" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">ИНН вашей организации или ИП *</label>
+          <input required type="text" id="buyerInn" placeholder="Введите ИНН (10 или 12 цифр)" class="w-full bg-navy-850 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-electric-400">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Наименование компании *</label>
+          <input required type="text" id="buyerCompany" placeholder="ООО / АО / ИП" class="w-full bg-navy-850 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-electric-400">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Телефон *</label>
+            <input required type="tel" id="buyerPhone" placeholder="+7 (___) ___-__-__" class="w-full bg-navy-850 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-electric-400">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Email для счёта *</label>
+            <input required type="email" id="buyerEmail" placeholder="snab@company.ru" class="w-full bg-navy-850 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-electric-400">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Комментарий / Требования к доставке</label>
+          <textarea id="buyerComment" rows="2" placeholder="Укажите город доставки или пожелания к резке" class="w-full bg-navy-850 border border-white/10 rounded-xl px-3.5 py-2 text-xs text-white outline-none focus:border-electric-400"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-sky-400 text-white font-bold py-3.5 rounded-xl shadow-glow-blue transition text-xs uppercase tracking-wider">
+          Отправить заявку в отдел продаж
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= 9. ПОДВАЛ (FOOTER) ================= -->
+  <footer id="contacts" class="bg-navy-950 border-t border-white/10 py-12 text-xs text-slate-400 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="font-display text-lg font-black text-white mb-2">ООО «МЕТАЛЛ-ИСТ»</div>
+        <p class="leading-relaxed mb-3">Комплексные поставки нержавеющего металлопроката и промышленной запорной арматуры по всей России.</p>
+        <div class="text-[11px] text-slate-500 font-mono">
+          ИНН: 7704429127 | КПП: 771501001<br>
+          ОГРН: 1177746634515
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Складской комплекс</h4>
+        <p>127282, г. Москва, Чермянский пр-д, д. 7, помещ. 1/2</p>
+        <p class="mt-2 text-electric-400">Пн-Пт: с 9:00 до 18:00 (МСК)</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Стандарты</h4>
+        <ul class="space-y-1">
+          <li>● DIN 11850 / DIN 11852</li>
+          <li>● DIN 32676 (Клампы)</li>
+          <li>● ГОСТ 33259-2015 (Фланцы)</li>
+          <li>● Сертификаты на каждую партию</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Отдел снабжения</h4>
+        <p class="text-white font-bold text-sm mb-1">+7 (495) 123-45-67</p>
+        <p>order@metall-east.ru</p>
+        <p class="mt-4 text-slate-600">© 2026 ООО «Металл-Ист». Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
